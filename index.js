@@ -15,7 +15,7 @@ const { MongoClient, ObjectID } = require("mongodb");
   // const games = db.collection("games");
   const games = undefined;
 
-  app.get("/", (req, res) => {
+  app.get("/hello", (req, res) => {
     return res.send("He ll o");
   });
 
