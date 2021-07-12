@@ -2,21 +2,21 @@ const express = require("express");
 const { MongoClient, ObjectID } = require("mongodb");
 
 (async () => {
-  const url = "mongodb://localhost:27017";
+  // const url = "mongodb://localhost:27017";
   const dbname = "ocean_bancodados_09_07_2021";
+  const url = `mongodb+srv://admin:admin@cluster0.bdrva.mongodb.net/${dbname}?retryWrites=true&w=majority`;
 
   const app = express();
 
   app.use(express.json());
   console.log("Conectando ao banco de dados...");
 
-  // const client = await MongoClient.connect(url, { useUnifiedTopology: true });
+  const client = await MongoClient.connect(url, { useUnifiedTopology: true });
 
   console.log("MongoDB conectado com sucesso!");
 
-  // const db = client.db(dbname);
-  // const games = db.collection("games");
-  const games = undefined;
+  const db = client.db(dbname);
+  const games = db.collection("games");
 
   app.get("/hello", (req, res) => {
     return res.send("He ll o");
