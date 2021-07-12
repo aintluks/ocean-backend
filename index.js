@@ -5,6 +5,9 @@ const { MongoClient, ObjectID } = require("mongodb");
   const url = "mongodb://localhost:27017";
   const dbname = "ocean_bancodados_09_07_2021";
 
+  const app = express();
+
+  app.use(express.json());
   console.log("Conectando ao banco de dados...");
 
   // const client = await MongoClient.connect(url, { useUnifiedTopology: true });
@@ -57,10 +60,6 @@ const { MongoClient, ObjectID } = require("mongodb");
 
     return res.send("Game removed...");
   });
+
+  app.listen(process.env.PORT || 3000);
 })();
-
-const app = express();
-
-app.use(express.json());
-
-app.listen(process.env.PORT || 3000);
