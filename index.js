@@ -23,8 +23,7 @@ const { MongoClient, ObjectID } = require("mongodb");
     const gameList = await games.find().toArray();
 
     return res.send(gameList);
-  https://aintluks-ocean-backend.herokuapp.com/
-});
+  });
 
   app.get("/games/:id", async (req, res) => {
     const id = req.params.id;
