@@ -14,6 +14,10 @@ const { MongoClient, ObjectID } = require("mongodb");
   const db = client.db(dbname);
   const games = db.collection("games");
 
+  app.get("/", (req, res) => {
+    return res.send("He ll o");
+  });
+
   app.get("/games", async (req, res) => {
     const gameList = await games.find().toArray();
 
@@ -58,4 +62,4 @@ const app = express();
 
 app.use(express.json());
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
